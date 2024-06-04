@@ -50,14 +50,15 @@ class User extends Authenticatable
     {
         $user = new BaseUser();
         $skills = ['PhpSkill', 'JsSkill', 'GolangSkill', 'JavaSkill'];
+        $description = [];
 
         foreach ($skills as $skill) {
-            if (rand(0, 1)) {
+            if (rand(1, 2)) {
                 $class = "App\\Decorators\\{$skill}";
                 $user = new $class($user);
+                $description[] = $skill;
             }
         }
-
-        return $user->getDescription();
+        return $description;
     }
 }

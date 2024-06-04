@@ -54,7 +54,7 @@
       <tr v-for="user in users" :key="user.id">
         <td>{{ user.name }}</td>
         <td>{{ user.email }}</td>
-        <td>{{ user.description }}</td>
+        <td>{{this.getSkills(user.description)}}</td>
       </tr>
       </tbody>
     </table>
@@ -75,6 +75,10 @@ export default {
     };
   },
   methods: {
+    getSkills(skills){
+      return 'Навыки: ' + skills.join(', ');
+
+    },
     fetchUsers() {
       axios.get('http://localhost:8000/api/users').then(response => {
         this.users = response.data;
