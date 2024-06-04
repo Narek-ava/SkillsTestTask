@@ -17,6 +17,8 @@ php artisan key:generate
 
 php artisan migrate
 
+php artisandb:seed
+
 php artisan serve
 
 
